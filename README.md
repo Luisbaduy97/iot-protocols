@@ -28,6 +28,20 @@ cd amqp
 python new_task.py
 ```
 
+### Publish/Subscribe
+Suscribirse a una cola
+```bash
+cd amqp/cloud_amqp
+python consume.py
+```
+
+Publicar en una cola
+```bash
+cd amqp/cloud_amqp
+python publish.py
+```
+
+
 **Nota: puedes iniciar los worker que quieras**
 
 
