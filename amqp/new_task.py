@@ -9,6 +9,8 @@ df = pd.read_csv('../data/sensor_data.csv')
 
 cols = df.columns.values.tolist()
 rows = df.values.tolist()
+# amqps://ryqzcgot:XU4yfegqzEjoBu5_wKdwgYrGic68TRSR@gull.rmq.cloudamqp.com/ryqzcgot # E
+# amqps://tppeqnwn:OchMIE3eLF0K3Yl4NBlwDHhRhgGwWLvk@shrimp.rmq.cloudamqp.com/tppeqnwn # L
 params = pika.URLParameters('amqps://tppeqnwn:OchMIE3eLF0K3Yl4NBlwDHhRhgGwWLvk@shrimp.rmq.cloudamqp.com/tppeqnwn')
 connection = pika.BlockingConnection(params)
 channel = connection.channel()
@@ -24,7 +26,7 @@ for i in range(len(rows)):
         routing_key='task_queue',
         body=body,
         properties=pika.BasicProperties(
-            delivery_mode=pika.spec.PERSISTENT_DELIVERY_MODE
+            delivery_mode=pika.spec.PERSISTENT_DELIVERY_MODE # read docs
         ))
     time.sleep(2)
     print(" [x] Sent %r" % body)
