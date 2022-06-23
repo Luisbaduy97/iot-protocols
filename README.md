@@ -1,9 +1,15 @@
 # iot-protocols
 
 ## Env
+Instalar dependencias
 ```python
 virtualenv venv
 pip install -r requirements.txt
+```
+
+Activar ambiente
+```bash
+source venv/bin/activate
 ```
 
 ## AMQP
