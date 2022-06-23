@@ -9,9 +9,8 @@ df = pd.read_csv('../data/sensor_data.csv')
 
 cols = df.columns.values.tolist()
 rows = df.values.tolist()
-
-connection = pika.BlockingConnection(
-    pika.ConnectionParameters(host='localhost'))
+params = pika.URLParameters('amqps://tppeqnwn:OchMIE3eLF0K3Yl4NBlwDHhRhgGwWLvk@shrimp.rmq.cloudamqp.com/tppeqnwn')
+connection = pika.BlockingConnection(params)
 channel = connection.channel()
 
 channel.queue_declare(queue='task_queue', durable=True)
